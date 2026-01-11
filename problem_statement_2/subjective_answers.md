@@ -30,7 +30,7 @@ The core philosophy is **"Retrieved Context as Ground Truth."** Instead of relyi
 
 - **Role:** Manages the flow of data. It doesn't "think," it routes.
 - **Technology:** LangChain, LangGraph, or a custom Python loop.
-- **Why it matters:** In complex chats, we often need "Agentic" behavior—where the bot decides _if_ it needs to search a database or _if_ it can answer from memory. The orchestrator handles this logic.
+- **Why it matters:** In complex chats, we often need "Agentic" behavior where the bot decides _if_ it needs to search a database or _if_ it can answer from memory. The orchestrator handles this logic.
 
 #### **B. The Vector Store (Long-Term Memory)**
 
@@ -75,11 +75,11 @@ graph TD
     LLM -->|Raw Response| Guard[Guardrails]
     Guard -->|Sanitized Response| User
 
-    %% Styling
-    classDef user fill:#f0f8ff,stroke:#4682b4,stroke-width:2px
-    classDef process fill:#f0fff0,stroke:#228b22,stroke-width:2px
-    classDef storage fill:#fffaf0,stroke:#daa520,stroke-width:2px
-    classDef security fill:#fff0f5,stroke:#c71585,stroke-width:2px
+    %% GitHub-friendly styling
+    classDef user fill:#f9f9f9,stroke:#24292e
+    classDef process fill:#ddf4ff,stroke:#0969da
+    classDef storage fill:#fff8c5,stroke:#9a6700
+    classDef security fill:#ffebe9,stroke:#cf222e
 
     class User user
     class API,EmbedModel,LLM process
@@ -95,7 +95,7 @@ graph TD
 
 Traditional databases (SQL) are excellent at exact matches (e.g., `WHERE id = 123`). However, human language is messy. If a user searches for "automobile," a SQL database might miss a document that only says "car."
 
-A **Vector Database** solves this by storing data as **Embeddings**—long lists of numbers (vectors) that represent semantic meaning. It uses algorithms like **HNSW (Hierarchical Navigable Small World)** graphs to perform Approximate Nearest Neighbor (ANN) search. This allows us to find documents that are _conceptually close_ to the query vector, rather than just matching keywords.
+A **Vector Database** solves this by storing data as **Embeddings** long lists of numbers (vectors) that represent semantic meaning. It uses algorithms like **HNSW (Hierarchical Navigable Small World)** graphs to perform Approximate Nearest Neighbor (ANN) search. This allows us to find documents that are _conceptually close_ to the query vector, rather than just matching keywords.
 
 ### **Hypothetical Problem Scenario**
 
