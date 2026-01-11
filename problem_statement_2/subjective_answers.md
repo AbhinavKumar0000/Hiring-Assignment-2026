@@ -62,29 +62,16 @@ Below is the architectural flow for a standard RAG-based Chatbot (Rendered using
 
 ```mermaid
 graph TD
+graph TD
     User[User] -->|Query| API[API Gateway/Orchestrator]
-
     API -->|Embed Query| EmbedModel[Embedding Model]
     EmbedModel -->|Vector| VectorDB[(Vector Database)]
     VectorDB -->|Top-K Docs| API
-
     API -->|Get History| Redis[(Redis / Session Store)]
     Redis -->|Chat History| API
-
     API -->|Context + History + Query| LLM[LLM Inference Engine]
     LLM -->|Raw Response| Guard[Guardrails]
     Guard -->|Sanitized Response| User
-
-    %% GitHub-friendly styling
-    classDef user fill:#f9f9f9,stroke:#24292e
-    classDef process fill:#ddf4ff,stroke:#0969da
-    classDef storage fill:#fff8c5,stroke:#9a6700
-    classDef security fill:#ffebe9,stroke:#cf222e
-
-    class User user
-    class API,EmbedModel,LLM process
-    class VectorDB,Redis storage
-    class Guard security
 ```
 
 ---
