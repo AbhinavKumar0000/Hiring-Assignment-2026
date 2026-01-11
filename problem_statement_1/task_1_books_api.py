@@ -19,7 +19,7 @@ def fetch_and_store_books():
         conn = sqlite3.connect('problem_statement_1\database.db')
         cursor = conn.cursor()
         
-        # Drop table if exists to avoid duplication during testing
+        # Drop table if exists 
         cursor.execute('DROP TABLE IF EXISTS books')
         
         cursor.execute('''
