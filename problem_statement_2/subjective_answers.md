@@ -62,7 +62,6 @@ Below is the architectural flow for a standard RAG-based Chatbot (Rendered using
 
 ```mermaid
 graph TD
-
     User[User] -->|Query| API[API Gateway/Orchestrator]
     API -->|Embed Query| EmbedModel[Embedding Model]
     EmbedModel -->|Vector| VectorDB[(Vector Database)]
